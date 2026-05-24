@@ -1,9 +1,10 @@
+import java.util.ArrayDeque;
 import java.util.Arrays;
 
 public class ReDupesSoArr {
     public static void main(String[] args) {
         int[] arr = {1, 1, 2, 2, 3, 3};
-        solve2(arr);
+        solve3(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -43,6 +44,29 @@ public class ReDupesSoArr {
             arr[k] = 0;
         }
 
+    }
+
+    public static void solve3(int[] arr) {
+        if (arr == null || arr.length == 0 || arr.length == 1) {
+            return;
+        }
+
+        ArrayDeque<Integer> stack = new ArrayDeque<>();
+        for (int j : arr) {
+            if (stack.isEmpty() || j != stack.peek()) {
+                stack.push(j);
+            }
+        }
+
+        int size = stack.size();
+
+        for(int j = size-1;j>=0;j--){
+            arr[j] = stack.pop();
+        }
+
+        for(int j = size;j<arr.length;j++){
+            arr[j] = 0;
+        }
     }
 
 }
