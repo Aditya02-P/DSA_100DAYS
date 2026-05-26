@@ -70,4 +70,29 @@ public class LongestsubarrWithSum {
         }
         return longestLen;
     }
+
+    public static int findLongestArr4(int[] arr, int target) {
+        int sum = 0;
+        int i = 0;
+        int longestLen = 0;
+
+        for (int j = 0; j < arr.length; j++) {
+
+            sum += arr[j];
+
+            while (sum > target && i <= j) {
+                sum -= arr[i];
+                i++;
+            }
+
+            if (sum == target) {
+                longestLen = Math.max(longestLen, j - i + 1);
+                System.out.println(i + ":" + j);
+            }
+        }
+
+        return longestLen;
+    }
+
+
 }
