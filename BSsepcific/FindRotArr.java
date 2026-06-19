@@ -3,9 +3,9 @@ public class FindRotArr {
         int[]arr={7,8,9,1,2,3,4,5,6};
         int target =1;
 
-        findTarget(arr,target);
+//        findTarget(arr,target);
 
-//        findRotPoint(arr);
+        findRotPoint(arr);
 
     }
 
@@ -60,5 +60,6 @@ public class FindRotArr {
 
         System.out.println("Rotation point: " + low);
         System.out.println("Minimum element: " + arr[low]);
+        System.out.println("Rotated "+high);
     }
 }
