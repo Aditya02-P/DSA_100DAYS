@@ -5,6 +5,8 @@ public class MinRotArr {
         findMin(arr);
     }
 
+
+    //This method keeps track of the min element in the sorted half than eliminate it
     public static void findMin(int[] arr){
         if(arr==null||arr.length==0){
             return;

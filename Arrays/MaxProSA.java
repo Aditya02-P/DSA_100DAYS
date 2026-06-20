@@ -2,10 +2,10 @@ public class MaxProSA {
     public static void main(String[] args) {
         int[] arr={2,3,-2,4};
 
-        findmaxpro(arr);
+        findMaxproduct(arr);
     }
 
-    public static void findmaxpro(int[] arr){
+    public static void findMaxproduct(int[] arr){
         if(arr==null||arr.length==0){
             return;
         }
