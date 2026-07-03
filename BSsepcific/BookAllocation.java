@@ -1,8 +1,9 @@
 public class BookAllocation {
-
+//It is the same logic for painter partition problem also
     public static void main(String[] args) {
-        int[] pages = {25, 46, 28, 49, 24};
-        int students = 4;
+//        int[] pages = {25, 46, 28, 49, 24};
+        int[] pages={10,20,30,40};
+        int students = 2;
 
         int ans = allocateBooks(pages, students);
         System.out.println("Minimum possible maximum pages: " + ans);
