@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Arrays" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Sorting" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BSsepcific" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Trees" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
