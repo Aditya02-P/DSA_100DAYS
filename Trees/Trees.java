@@ -1,4 +1,5 @@
 import java.util.ArrayDeque;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class Trees {
@@ -94,5 +95,24 @@ public class Trees {
         preorder(root.left);
         preorder(root.right);
         System.out.println(root.val);
+    }
+
+
+    public static void levelorder(Node root) {
+        if(root==null){
+            return ;
+        }
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            Node temp = queue.poll();
+            System.out.println(temp.val);
+            if(temp.left!=null){
+                queue.add(temp.left);
+            }
+            if(temp.right!=null){
+                queue.add(temp.right);
+            }
+        }
     }
 }
