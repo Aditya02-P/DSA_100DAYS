@@ -3,17 +3,6 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class Trees {
-    static class Node {
-        int val;
-        Node left;
-        Node right;
-
-        public Node(int val) {
-            this.val = val;
-            left = right = null;
-        }
-    }
-
     public static void main(String[] args) {
 
         Node root =null;
@@ -21,8 +10,6 @@ public class Trees {
         root=Trees.addNode(queue);
 
         preorder(root);
-
-
     }
 
     public static Node addNode(ArrayDeque<Node> queue) {

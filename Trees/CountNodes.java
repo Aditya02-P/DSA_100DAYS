@@ -3,50 +3,10 @@ import java.util.Queue;
 
 public class CountNodes {
 
-    static class Node {
-        int val;
-        Node left;
-        Node right;
-
-        Node(int val) {
-            this.val = val;
-        }
-    }
-
-    public static Node buildTree(int[] arr) {
-        if (arr.length == 0) {
-            return null;
-        }
-
-        Node[] nodes = new Node[arr.length];
-
-        // Create all nodes
-        for (int i = 0; i < arr.length; i++) {
-            nodes[i] = new Node(arr[i]);
-        }
-
-        // Connect nodes as a complete binary tree
-        for (int i = 0; i < arr.length; i++) {
-
-            int leftIndex = 2 * i + 1;
-            int rightIndex = 2 * i + 2;
-
-            if (leftIndex < arr.length) {
-                nodes[i].left = nodes[leftIndex];
-            }
-
-            if (rightIndex < arr.length) {
-                nodes[i].right = nodes[rightIndex];
-            }
-        }
-
-        return nodes[0];
-    }
-
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 
-        Node root = buildTree(arr);
+        Node root = Node.buildTree(arr);
 
         maxInEachLevel(root);
 
@@ -127,14 +87,7 @@ public class CountNodes {
     //Problem 6 -> height of BT (Count the number of nodes in the height)
 
     public static int height(Node root) {
-        if (root == null) {
-            return -1;
-        }
-
-        int leftHeight = height(root.left);
-        int rightHeight = height(root.right);
-
-        return 1 + Math.max(leftHeight, rightHeight);
+        return Node.height(root);
     }
 
 
@@ -194,4 +147,3 @@ public class CountNodes {
         }
     }
 }
-
