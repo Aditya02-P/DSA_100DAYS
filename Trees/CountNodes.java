@@ -132,6 +132,7 @@ public class CountNodes {
 
                 Node node = queue.poll();
 
+                assert node != null;
                 max = Math.max(max, node.val);
 
                 if (node.left != null) {
