@@ -1,12 +1,13 @@
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Queue;
 
 public class ViewTree {
     public static void main(String[] args) {
         int[]arr={1,2,3,4,5,6,7,8,9};
         Node root = Node.buildTree(arr);
 
-        printRightView(root);
     }
 
 
@@ -80,4 +81,29 @@ public class ViewTree {
 
         System.out.println(list);
     }
+
+    public static int findRightmostHD(Node root, int hd) {
+        if (root == null) {
+            return Integer.MIN_VALUE;
+        }
+
+        int leftMax = findRightmostHD(root.left, hd - 1);
+        int rightMax = findRightmostHD(root.right, hd + 1);
+
+        return Math.max(hd, Math.max(leftMax, rightMax));
+    }
+
+    public static int findLeftmostHD(Node root, int hd) {
+        if (root == null) {
+            return Integer.MAX_VALUE;
+        }
+
+        int leftMin = findLeftmostHD(root.left, hd - 1);
+        int rightMin = findLeftmostHD(root.right, hd + 1);
+
+        return Math.min(hd, Math.min(leftMin, rightMin));
+    }
+
+
+
 }

@@ -19,6 +19,7 @@ public class CousinNodes {
                 Node node = queue.poll();
 
                 // Check if x and y are siblings
+                //check if different parents or not
                 if (node.left != null && node.right != null) {
                     if ((node.left.val == x && node.right.val == y) ||
                             (node.left.val == y && node.right.val == x)) {
