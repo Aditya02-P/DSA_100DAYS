@@ -1,11 +1,14 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class HouseRobber {
     public static void main(String[] args) {
         int[] hs ={1,7,2,3,1,9};
-        int ans = calcMaxAmOptimizedFB(hs);
-        System.out.println(ans);
+        int ans = Math.max(
+                robRound(hs, 0, hs.length - 1), // exclude last
+                robRound(hs, 1, hs.length)      // exclude first
+        );
     }
 
     private static int calcMaxAm(int[] hs,int index) {
@@ -83,5 +86,49 @@ public class HouseRobber {
         }
 
         return prev;
+    }
+
+    private static int robRound(int[] hs, int index, int endIndex) {
+        if (index >= endIndex) {
+            return 0;
+        }
+
+        int yes = hs[index] + robRound(hs, index + 2, endIndex);
+        int no = robRound(hs, index + 1, endIndex);
+
+        return Math.max(yes, no);
+    }
+
+    private static int robRound(int[] hs, int index, int endIndex, int[] dp) {
+        if (index >= endIndex) {
+            return 0;
+        }
+
+        if (dp[index] != -1) {
+            return dp[index];
+        }
+
+        int yes = hs[index] + robRound(hs, index + 2, endIndex, dp);
+        int no = robRound(hs, index + 1, endIndex, dp);
+
+        dp[index] = Math.max(yes, no);
+        return dp[index];
+    }
+
+    public static int rob(int[] hs) {
+        if (hs.length == 1) {
+            return hs[0];
+        }
+
+        int[] dp1 = new int[hs.length];
+        int[] dp2 = new int[hs.length];
+
+        Arrays.fill(dp1, -1);
+        Arrays.fill(dp2, -1);
+
+        int excludeLast = robRound(hs, 0, hs.length - 1, dp1);
+        int excludeFirst = robRound(hs, 1, hs.length, dp2);
+
+        return Math.max(excludeLast, excludeFirst);
     }
 }

@@ -36,18 +36,20 @@ public class MInCostStairs {
 
     //Bottom-Up approach
 
-    private static int findMinCost3(int[] cost,int n){
+    private static int findMinCost3(int[] cost, int n) {
         if (n <= 1) return 0;
         int[] dp = new int[n + 1];
         dp[0] = 0;
         dp[1] = 0;
-        dp[2] =Math.min(dp[1]+cost[1], dp[0]+cost[0]);
+        dp[2] = Math.min(dp[1] + cost[1], dp[0] + cost[0]);
 
         for (int i = 3; i <= n; i++) {
-            dp[i]=Math.min(dp[i-1]+cost[i-1], dp[i-2]+cost[i-2]);
+            dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
         }
 
         return dp[n];
     }
 
 }
+
+
